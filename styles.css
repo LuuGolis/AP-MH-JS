@@ -1,0 +1,13 @@
+header img{
+    width: 200px;
+    height: 50px;
+}
+header{
+    background-color:#060047;
+}
+footer{
+    background-color:#B3005E;
+}
+#active{
+    background-color:#E90064;
+}
