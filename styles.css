@@ -3,9 +3,11 @@ header img{
     height: 50px;
 }
 header{
+    min-height: 15vh;
     background-color:#060047;
 }
 footer{
+    min-height: 5vh;
     background-color:#B3005E;
 }
 #active{
