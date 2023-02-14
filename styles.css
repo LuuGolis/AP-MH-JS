@@ -1,9 +1,10 @@
+
 header img{
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: auto;
 }
 header{
-    min-height: 15vh;
+    min-height: 10vh;
     background-color:#060047;
 }
 footer{
@@ -12,4 +13,12 @@ footer{
 }
 #active{
     background-color:#E90064;
+}
+
+nav{
+    background-color:#B3005E;
+    padding: 0.5rem;
+}
+#np{
+    margin-left: 0.8rem;
 }
