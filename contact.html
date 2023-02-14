@@ -14,7 +14,7 @@
 
 
 <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <header class="d-flex flex-wrap justify-content-center py-3">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
           <img src="./assets/LogoAmazingEvents.png" alt="logo AE">
@@ -28,14 +28,21 @@
           <li class="nav-item"><a href="eventStats.html" class="nav-link text-light">Stats</a></li>
         </ul>
       </header>
-      <nav class="row justify-content-md-center">
+      <nav class="row justify-content-md-center pb-3">
         <a href="pastEvents.html" class="col" id="np"> <img src="assets/prev1.png" width="20px" height="35px"> </a>
-        <h1 class="col-10 text-center">Contact</h1>
+        <h1 class="col-10 text-center text-black">Contact</h1>
         <a href="eventStats.html" class="col" id="np"> <img src="assets/next1.png" width="20px" height="35px"> </a>
+        <div class="row d-flex flex-wrap">
+            <a class="col">Navbar</a>
+            <form class="col-4 d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
     </nav>
 
 
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
         <ul class="nav col-3 justify-content-center list-unstyled d-flex">
             <li class="ms-3"><a class="text-muted" href="#">
                 <img src="./assets/instagram.png" alt="instagram" width="24" height="24">
@@ -49,11 +56,6 @@
         </ul>
 
         <div class="col-md-4 d-flex align-items-rigth">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
             <span class="mb-3 mb-md-0 text-muted">Cohort</span>
         </div>
         

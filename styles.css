@@ -7,6 +7,7 @@ header{
     min-height: 10vh;
     background-color:#060047;
 }
+
 footer{
     min-height: 5vh;
     background-color:#B3005E;
@@ -21,4 +22,9 @@ nav{
 }
 #np{
     margin-left: 0.8rem;
+}
+
+.row{
+    margin-left: 0%;
+    margin-right: 0%;
 }
