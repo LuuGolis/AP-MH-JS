@@ -28,3 +28,14 @@ nav{
     margin-left: 0%;
     margin-right: 0%;
 }
+form{
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+form label{
+    padding-top: 1rem;
+}
+#submit{
+    margin-top: 1rem;
+    justify-content: end;
+}
