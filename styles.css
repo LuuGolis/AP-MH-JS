@@ -7,8 +7,14 @@ header{
     min-height: 10vh;
     background-color:#060047;
 }
+nav{
+    min-height: 3vh;
+}
+#filter{
+    min-height: 2vh;
+}
 main{
-    min-height: 85vh;
+    min-height: 80vh;
 
 }
 
@@ -24,8 +30,12 @@ nav{
     background-color:#B3005E;
     padding: 0.5rem;
 }
-#np, #np1{
-    margin-left: 0.8rem;
+
+#np1{
+    justify-content: center;
+}
+label{
+    font-size: x-small;
 }
 
 .row{

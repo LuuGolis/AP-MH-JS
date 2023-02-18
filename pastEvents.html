@@ -30,15 +30,16 @@
     </ul>
   </header>
 
-  <nav>
-    <div class="row d-flex flex-wrap justify-content-md-center pb-1">
-      <a href="upEvents.html" class="col" id="np"> <img src="assets/prev1.png" alt="prev" width="20" height="35"> </a>
-      <h1 class="col-10 text-center text-black">Past Events</h1>
-      <a href="contact.html" class="col" id="np1"> <img src="assets/next1.png" alt="next" width="20" height="35"> </a>
-    </div>
-  </nav>
+  <nav class="row d-flex align-items-center">
 
-  <div class="row d-flex flex-wrap align-items-center mt-2">
+    <a class="col" href="upEvents.html"> <img src="assets/prev1.png" alt="prev" width="20" height="30"  id="np">
+    </a>
+    <h1 class="col-sm-10 text-center text-black">Past events</h1>
+    <a class="col" href="contact.html"> <img src="assets/next1.png" alt="next" width="20" height="30" id="np1">
+    </a>
+</nav>
+
+  <div class="row d-flex flex-wrap align-items-center mt-2" id="filter">
     <div class="col-6">
       <fieldset>
         <label>
@@ -63,57 +64,65 @@
         </label>
       </fieldset>
     </div>
-    <form class="col-3 mt-2" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
-    </form>
+    <div class="col d-flex justify-content-end">
+      <div class="input-group w-50">
+        <span class="input-group-text" id="basic-addon1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+            </path>
+          </svg>
+        </span>
+        <input type="text" class="form-control" placeholder="Search" aria-label="Input group example"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
   </div>
 
-  <main>
-    <div class="container-fluid d-flex align-items-center gap-3">
-      <div class="card my-4" style="width: 15rem;">
-        <img src="./assets/Museum_Tour.jpg" class="card-img-top" alt="museum tour" width="150" height="150">
-        <div class="card-body">
-          <h5 class="card-title">Título</h5>
-          <p class="card-text">Texto descriptivo</p>
-          <p>Price $00000
-          <p>
-            <a href="details.html" class="btn btn-dark">See more</a>
-        </div>
+  <main class="container mt-2">
+    <div class="row p-3 d-flex flex-wrap justify-content-center align-items-center gap-3">
+      <div class="card" style="width: 15rem;">
+          <img src="./assets/Museum_Tour.jpg" class="card-img-top" alt="museum tour" width="150" height="150">
+          <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">Texto descriptivo</p>
+              <p>Price $00000</p>
+              <p>
+                  <a href="details.html" class="btn btn-dark">See more</a>
+          </div>
       </div>
-      <div class="card my-4" style="width: 15rem;">
-        <img src="./assets/Costume_Party.jpg" class="card-img-top" alt="costume party" width="150" height="150">
-        <div class="card-body">
-          <h5 class="card-title">Título</h5>
-          <p class="card-text">Texto descriptivo</p>
-          <p>Price $00000
-          <p>
-            <a href="details.html" class="btn btn-dark">See more</a>
-        </div>
+      <div class="card" style="width: 15rem;">
+          <img src="./assets/Costume_Party.jpg" class="card-img-top" alt="costume party" width="150" height="150">
+          <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">Texto descriptivo</p>
+              <p>Price $00000</p>
+              <p>
+                  <a href="details.html" class="btn btn-dark">See more</a>
+          </div>
       </div>
-      <div class="card my-4" style="width: 15rem;">
-        <img src="./assets/Marathon.jpg" class="card-img-top" alt="marathon" width="150" height="150">
-        <div class="card-body">
-          <h5 class="card-title">Título</h5>
-          <p class="card-text">Texto descriptivo</p>
-          <p>Price $00000
-          <p>
-            <a href="details.html" class="btn btn-dark">See more</a>
-        </div>
+      <div class="card" style="width: 15rem;">
+          <img src="./assets/Marathon.jpg" class="card-img-top" alt="marathon" width="150" height="150">
+          <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">Texto descriptivo</p>
+              <p>Price $00000</p>
+              <p>
+                  <a href="details.html" class="btn btn-dark">See more</a>
+          </div>
       </div>
-      <div class="card my-4" style="width: 15rem;">
-        <img src="./assets/Food_Fair.jpg" class="card-img-top" alt="food fair" width="150" height="150">
-        <div class="card-body">
-          <h5 class="card-title">Título</h5>
-          <p class="card-text">Texto descriptivo</p>
-          <p>Price $00000
-          <p>
-            <a href="details.html" class="btn btn-dark">See more</a>
-        </div>
+      <div class="card" style="width: 15rem;">
+          <img src="./assets/Food_Fair.jpg" class="card-img-top" alt="food fair" width="150" height="150">
+          <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text">Texto descriptivo</p>
+              <p>Price $00000</p>
+              
+                  <a href="details.html" class="btn btn-dark">See more</a>
+          </div>
       </div>
-
-
-    </div>
+  </div>
   </main>
 
 
