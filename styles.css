@@ -31,10 +31,7 @@ nav{
     padding: 0.5rem;
 }
 
-#np1{
-    justify-content: center;
-}
-label{
+fieldset label{
     font-size: x-small;
 }
 
@@ -53,9 +50,4 @@ form label{
     margin-top: 1rem;
     justify-content: end;
 }
-section{
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-bottom: 1rem;
-    padding-top: 2rem;
-}
+
