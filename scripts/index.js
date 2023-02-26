@@ -13,7 +13,7 @@ function crearTarjetas(arrayDatos){
             <h5 class="card-title">${event.name}</h5>
             <p class="card-text">${event.description}</p>
             <p>$${event.price}</p>
-            <a href="details.html" class="btn btn-dark">See more</a>
+            <a href="details.html" class="btn btn-dark">See more${event._id}</a>
         </div>
     </div> `
     }
