@@ -19,4 +19,4 @@ function crearTarjetas(arrayDatos){
     }
     return tarjetas
 }
-console.log(Object.values(data.events))
+console.log(data.events[0])

@@ -12,7 +12,7 @@ function crearTarjeta(arrayDatos){
         tarjeta += `<div class="card mt-4">
         <div class="row g-0">
           <div class="col d-flex">
-            <img class="img-fluid rounded" src="${event.image}" alt="eventImg">
+            <img class="img-fluid rounded" src="${event.image}"  alt="eventImg">
           </div>
           <div class="col-md-6">
             <div class="card-body">

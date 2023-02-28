@@ -52,7 +52,7 @@ form label{
 }
 
 
-#btn{
+.btn{
     position: absolute;
     left: 180px;
     bottom: 10px;
