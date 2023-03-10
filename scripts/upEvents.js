@@ -4,6 +4,14 @@ let eventosFuturos = data.events.filter(event => event.date > data.currentDate)
 let tarjetasUpCreadas = crearTarjetas(eventosFuturos)
 
 contenedorUpTarjetas.innerHTML = tarjetasUpCreadas
+
+const categoriasUp = nombreCategorias(data.events)
+
+const contenedorUpCheckbox = document.querySelector('#contenedorFiltrosUp')
+let categoriasUpCreadas = crearLblCategoria(categorias) 
+contenedorUpCheckbox.innerHTML =  categoriasUpCreadas 
+
+
 /*
 function crearTarjetasUp(arrayDatos){
     let tarjeta = ""

@@ -4,9 +4,10 @@ let tarjetasCreadas = crearTarjetas(data.events)
 
 contenedorTarjetas.innerHTML = tarjetasCreadas
 
-function crearTarjetas(arrayDatos){
+function crearTarjetas(arrayDatos) {
     let tarjeta = ""
-    let tarjetas = arrayDatos.forEach(event => {tarjeta += `<div class="card" style="width: 18rem; height:25rem;">
+    let tarjetas = arrayDatos.forEach(event => {
+        tarjeta += `<div class="card" style="width: 18rem; height:25rem;">
     <img src="${event.image}" class="card-img-top" alt="cardImg" width="150" height="150">
     <div class="card-body">
         <h5 class="card-title">${event.name}</h5>
@@ -14,47 +15,50 @@ function crearTarjetas(arrayDatos){
         <p>$${event.price}</p>
         <a href="details.html" class="btn btn-dark" id="btn">See more</a>
     </div>
-</div> `    
+</div> `
     });
     return tarjeta
 }
 
-/*
-console.log(Object.keys(data))
-console.log(Object.keys(data.events))
-console.log(data.events)
-console.log(data.events[1])
-console.log(Object.values(data.events));
-*/
-const contenedorFiltros = document.querySelector('#contenedorFiltros')
-const checkBox = document.querySelectorAll("input[type=checkBox]")
-const label = document.querySelectorAll("label")
-
-function nombreCategorias(arrayDatos){
+//Creación de categorías
+function nombreCategorias(arrayDatos) {
     let category = arrayDatos.map((event) => event.category)
-    categorias = new Set(category)
+    let categorias = new Set(category)
     return categorias
 }
-categorias = nombreCategorias(data.events)
-console.log(categorias);
-console.log(typeof(categorias));
-console.log(categorias.values());
+const categorias = nombreCategorias(data.events)
 
-categorias.forEach(function(value) {
-    console.log(value)
-  })
-/*
-let checkboxCreados = crearCheckBox(categorias)
-contenedorFiltros.innerHTML = checkboxCreados
-
-function crearCheckBox(arrayCategorias){
- let etiqueta = ''
- let category = 
- let labels =  arrayCategorias.forEach(label=>{
-    etiqueta += `<label>
-    ${category}
-    <input type="checkbox" name="" value="">
+function crearLblCategoria(categorias) {
+    let lblCategoria = ''
+    for (let categoria of categorias.values()) {
+        lblCategoria +=
+            `<label>
+   ${categoria}
+   <input type="checkbox" name="${categoria}" value="${categoria}">
 </label>`
- })
+    }
+    return lblCategoria
 }
-*/
+const contenedorCheckbox = document.querySelector('#contenedorFiltros')
+let categoriasCreadas = crearLblCategoria(categorias) 
+contenedorCheckbox.innerHTML =  categoriasCreadas 
+
+//Filtrar tarjetas por nombre y descripcion del evento
+
+let buscador = document.getElementById('buscador') //log correcto
+
+buscador.addEventListener('keyup',()=>{
+    let filtro = data.events.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
+    let filtroNombre = crearTarjetas(filtro)
+ 
+    contenedorTarjetas.innerHTML = filtroNombre
+})
+
+buscador.addEventListener('keyup',()=>{
+    let filtro = data.events.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
+    let filtroD = crearTarjetas(filtro)
+    contenedorTarjetas.innerHTML = filtroD
+ 
+})
+
+
