@@ -27,30 +27,29 @@ let crearCheckbox = dibujarCheckboxs(categorias)
 contenedorCheckbox.innerHTML = crearCheckbox
 let check = document.querySelectorAll('input[type=checkbox]')
 let allCheckbox = document.querySelectorAll('input[name=categoria]:checked')
+let value = []
 
 console.log(allCheckbox);
 console.log(crearCheckbox.value);
-console.log(check);
-console.log(typeof(check));
-console.log(Object.keys(check));
-check.forEach(c => console.log(c.checked))
-check.forEach(c => console.log(c.value))
-let value = []
-check.forEach(c => c.addEventListener('change', (e)=>{
+
+
+check.forEach(c => c.addEventListener('change', ()=>{
     
     if(c.checked == true){
         value.push(c.value) 
-      //  value.filter(() => check.checked == true)
     }else{
-        value.splice(e.target.value)
+        value.splice(value.indexOf(c.value), 1)
     }
-
+    let filtro = data.events.filter((event) => event.category == value)
+    let filtroCategoria = crearTarjetas(filtro)
+    console.log(filtro);
+    contenedorTarjetas.innerHTML = filtroCategoria
     console.log(value)
     console.log(value.length)
 }))
 
 /* Esto anda perfecto solo que si aplicas buscador te muestra todas las cards
-y solo se aplica un elemento al array
+y solo se aplica un elemento al array => solucionado lo de 1 solo elemento
 check.forEach(c => c.addEventListener('click', ()=>{
     let value = []
     if(c.checked == true){
