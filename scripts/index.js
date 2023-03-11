@@ -26,49 +26,21 @@ let contenedorCheckbox = document.querySelector('#contenedorFiltros')
 let crearCheckbox = dibujarCheckboxs(categorias)
 contenedorCheckbox.innerHTML = crearCheckbox
 let check = document.querySelectorAll('input[type=checkbox]')
-let allCheckbox = document.querySelectorAll('input[name=categoria]:checked')
 let value = []
+let x = []
 
-console.log(allCheckbox);
-console.log(crearCheckbox.value);
+document.addEventListener('change', () => {
+    const checkedValues = [...document.querySelectorAll('input[type=checkbox]')]
+      .filter(input => input.checked)
+      .map(input => input.value);
+    const categoriasFiltradas = data.events.filter(({ category }) => checkedValues.includes(category));
+    console.log(categoriasFiltradas);
+    contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
+  });
 
-
-check.forEach(c => c.addEventListener('change', ()=>{
-    
-    if(c.checked == true){
-        value.push(c.value) 
-    }else{
-        value.splice(value.indexOf(c.value), 1)
-    }
-    let filtro = data.events.filter((event) => event.category == value)
-    let filtroCategoria = crearTarjetas(filtro)
-    console.log(filtro);
-    contenedorTarjetas.innerHTML = filtroCategoria
-    console.log(value)
-    console.log(value.length)
-}))
-
-/* Esto anda perfecto solo que si aplicas buscador te muestra todas las cards
-y solo se aplica un elemento al array => solucionado lo de 1 solo elemento
-check.forEach(c => c.addEventListener('click', ()=>{
-    let value = []
-    if(c.checked == true){
-        value.push(c.value) 
-    } /*else{
-        value.pop(c.value)
-    }
-    let filtro = data.events.filter((event) => event.category == value)
-    let filtroCategoria = crearTarjetas(filtro)
-    console.log(filtro);
-    contenedorTarjetas.innerHTML = filtroCategoria
-    console.log(value)
-    console.log(value.length)
-    console.log(typeof(value));
-}))
-*/
 function dibujarCheckboxs(arrayDatos) {
-        let checkBox = ''
-        for (let categoria of categorias.values()) {
+    let checkBox = ''
+    for (let categoria of categorias.values()) {
         checkBox +=
             `<label>
    ${categoria}
