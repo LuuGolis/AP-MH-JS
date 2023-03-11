@@ -1,3 +1,4 @@
+console.log([document]);
 const contenedorTarjetas = document.querySelector('#contenedorCards')
 
 let tarjetasCreadas = crearTarjetas(data.events)
@@ -13,7 +14,7 @@ function crearTarjetas(arrayDatos) {
         <h5 class="card-title">${event.name}</h5>
         <p class="card-text">${event.description}</p>
         <p>$${event.price}</p>
-        <a href="details.html" class="btn btn-dark" id="btn">See more</a>
+        <a href="./details.html?_id=${event._id}" class="btn btn-dark" >See more</a>
     </div>
 </div> `
     });
@@ -22,21 +23,21 @@ function crearTarjetas(arrayDatos) {
 
 //Creación de categorías
 const categorias = nombreCategorias(data.events)
+
 let contenedorCheckbox = document.querySelector('#contenedorFiltros')
+
 let crearCheckbox = dibujarCheckboxs(categorias)
 contenedorCheckbox.innerHTML = crearCheckbox
 let check = document.querySelectorAll('input[type=checkbox]')
-let value = []
-let x = []
 
-document.addEventListener('change', () => {
-    const checkedValues = [...document.querySelectorAll('input[type=checkbox]')]
-      .filter(input => input.checked)
-      .map(input => input.value);
+contenedorCheckbox.addEventListener('change', () => {
+    const checkedValues = [...check]
+        .filter(input => input.checked)
+        .map(input => input.value);
     const categoriasFiltradas = data.events.filter(({ category }) => checkedValues.includes(category));
     console.log(categoriasFiltradas);
     contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
-  });
+});
 
 function dibujarCheckboxs(arrayDatos) {
     let checkBox = ''
@@ -57,21 +58,19 @@ function nombreCategorias(arrayDatos) {
 
 //Filtrar tarjetas por nombre y descripcion del evento
 
-let buscador = document.getElementById('buscador') //log correcto
+let buscador = document.getElementById('buscador')
 
-buscador.addEventListener('keyup', () => {
-    let filtro = data.events.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
-    let filtroNombre = crearTarjetas(filtro)
+let searchInput = search(data.events, buscador)
 
-    contenedorTarjetas.innerHTML = filtroNombre
-})
+contenedorTarjetas.innerHTML = searchInput
 
-buscador.addEventListener('keyup', () => {
-    let filtro = data.events.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
-    let filtroD = crearTarjetas(filtro)
+function search(arrayDatos, buscador) {
+    buscador.addEventListener('keyup', () => {
+        let filtroN = arrayDatos.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
+        let filtroD = arrayDatos.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
+        let filtro = crearTarjetas(filtroN) || crearTarjetas(filtroD)
 
-    contenedorTarjetas.innerHTML = filtroD
-
-})
-
-
+        contenedorTarjetas.innerHTML = filtro
+    })
+    return filtro
+}

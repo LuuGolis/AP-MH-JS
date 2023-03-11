@@ -59,3 +59,7 @@ form label{
     
 }
 
+#btnDetails{
+    position: absolute;
+    margin-left: 26rem;
+}
