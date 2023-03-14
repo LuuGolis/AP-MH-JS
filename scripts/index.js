@@ -1,3 +1,7 @@
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then(response => response.json())
+.then(datosAPI =>{
+    console.log(datosAPI);
+})
 console.log([document]);
 const contenedorTarjetas = document.querySelector('#contenedorCards')
 
@@ -30,6 +34,29 @@ let crearCheckbox = dibujarCheckboxs(categorias)
 contenedorCheckbox.innerHTML = crearCheckbox
 let check = document.querySelectorAll('input[type=checkbox]')
 
+console.log(crearCheckbox.value);
+console.log(check);
+console.log(typeof(check));
+console.log(Object.keys(check));
+check.forEach(c => console.log(c.checked))
+check.forEach(c => console.log(c.value))
+let value = []
+
+check.forEach(c => c.addEventListener('change', (e)=>{
+
+    if(c.checked == true){
+        value.push(c.value) 
+      //  value.filter(() => check.checked == true)
+      //11/3 22:40 me quede aca abajo analizando el target a ver si encuentro algo
+      console.log(e);
+    }else{
+        value.splice(value.indexOf(c.value), 1)
+    }
+
+    console.log(value)
+    console.log(value.length)
+}))
+/*
 contenedorCheckbox.addEventListener('change', () => {
     const checkedValues = [...check]
         .filter(input => input.checked)
@@ -38,14 +65,14 @@ contenedorCheckbox.addEventListener('change', () => {
     console.log(categoriasFiltradas);
     contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
 });
-
+*/
 function dibujarCheckboxs(arrayDatos) {
     let checkBox = ''
     for (let categoria of categorias.values()) {
         checkBox +=
             `<label>
    ${categoria}
-   <input type="checkbox" name="categoria" id="n" value="${categoria}">
+   <input type="checkbox" name="categoria" value="${categoria}">
 </label>`
     }
     return checkBox
