@@ -22,21 +22,35 @@ function crearTarjetas(arrayDatos) {
     return tarjeta
 }
 
-//Creación de categorías
+
+//Filtros checkbox - buscador
 
 const categorias = nombreCategorias(data.events)
+
 let contenedorCheckbox = document.querySelector('#contenedorFiltros')
+
 let crearCheckbox = dibujarCheckboxs(categorias)
 contenedorCheckbox.innerHTML = crearCheckbox
 let check = document.querySelectorAll('input[type=checkbox]')
 
-contenedorCheckbox.addEventListener('change', () => {
+let buscador = document.getElementById('buscador')
+contenedorCheckbox.addEventListener('change', filtroCategoria);
+buscador.addEventListener('keyup', filtroCategoria)
+
+function filtroCategoria() {
+    let valorBuscador = buscador.value.toLowerCase()
     const checkedValues = [...check]
         .filter(input => input.checked)
         .map(input => input.value);
-    const categoriasFiltradas = eventosFuturos.filter(({ category }) => checkedValues.includes(category));
+    const categoriasFiltradas = eventosFuturos.filter(({ category, name, description }) =>
+        (name.toLowerCase().includes(valorBuscador)
+            || description.toLowerCase().includes(valorBuscador)) && (checkedValues.length == 0
+                || checkedValues.includes(category)));
+
     contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
-});
+
+
+}
 
 function dibujarCheckboxs(arrayDatos) {
     let checkBox = ''
@@ -53,21 +67,4 @@ function nombreCategorias(arrayDatos) {
     let category = arrayDatos.map((event) => event.category)
     let categorias = new Set(category)
     return categorias
-}
-
-//filtro por nombre y descripcion en buscador
-let buscador = document.getElementById('buscador') //log correcto
-
-let searchInput = search(eventosFuturos, buscador)
-contenedorTarjetas.innerHTML = searchInput
-
-function search(arrayDatos, buscador) {
-    buscador.addEventListener('keyup', () => {
-        let filtroN = arrayDatos.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
-        let filtroD = arrayDatos.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
-        let filtro = crearTarjetas(filtroN) || crearTarjetas(filtroD)
-
-        contenedorTarjetas.innerHTML = filtro
-    })
-    return filtro
 }

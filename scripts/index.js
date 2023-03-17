@@ -41,7 +41,7 @@ console.log(Object.keys(check));
 check.forEach(c => console.log(c.checked))
 check.forEach(c => console.log(c.value))
 let value = []
-
+/*
 check.forEach(c => c.addEventListener('change', (e)=>{
 
     if(c.checked == true){
@@ -56,16 +56,31 @@ check.forEach(c => c.addEventListener('change', (e)=>{
     console.log(value)
     console.log(value.length)
 }))
-/*
-contenedorCheckbox.addEventListener('change', () => {
+*/
+let buscador = document.getElementById('buscador')
+contenedorCheckbox.addEventListener('change', filtroCategoria);
+
+buscador.addEventListener('keyup', filtroCategoria)
+
+function filtroCategoria(){
+    let valorBuscador = buscador.value.toLowerCase()
     const checkedValues = [...check]
         .filter(input => input.checked)
         .map(input => input.value);
-    const categoriasFiltradas = data.events.filter(({ category }) => checkedValues.includes(category));
-    console.log(categoriasFiltradas);
-    contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
-});
-*/
+    const categoriasFiltradas = data.events.filter(({ category, name, description }) => 
+    (name.toLowerCase().includes(valorBuscador)
+    || description.toLowerCase().includes(valorBuscador)) && (checkedValues.length == 0 ||checkedValues.includes(category)));
+    
+     console.log(categoriasFiltradas);
+     contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
+
+  /*  let filtroN = arrayDatos.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
+    let filtroD = arrayDatos.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
+    let filtro = crearTarjetas(filtroN) || crearTarjetas(filtroD)
+
+    contenedorTarjetas.innerHTML = filtro*/
+}
+
 function dibujarCheckboxs(arrayDatos) {
     let checkBox = ''
     for (let categoria of categorias.values()) {
@@ -85,8 +100,8 @@ function nombreCategorias(arrayDatos) {
 
 //Filtrar tarjetas por nombre y descripcion del evento
 
-let buscador = document.getElementById('buscador')
 
+/*
 let searchInput = search(data.events, buscador)
 
 contenedorTarjetas.innerHTML = searchInput
@@ -99,5 +114,6 @@ function search(arrayDatos, buscador) {
 
         contenedorTarjetas.innerHTML = filtro
     })
-    return filtro
+   // return filtro
 }
+*/
