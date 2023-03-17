@@ -1,7 +1,7 @@
 fetch('https://mindhub-xj03.onrender.com/api/amazing').then(response => response.json())
-.then(datosAPI =>{
-    console.log(datosAPI);
-})
+    .then(datosAPI => {
+        console.log(datosAPI);
+    })
 console.log([document]);
 const contenedorTarjetas = document.querySelector('#contenedorCards')
 
@@ -25,7 +25,8 @@ function crearTarjetas(arrayDatos) {
     return tarjeta
 }
 
-//Creación de categorías
+//Filtros checkbox - buscador
+
 const categorias = nombreCategorias(data.events)
 
 let contenedorCheckbox = document.querySelector('#contenedorFiltros')
@@ -34,51 +35,28 @@ let crearCheckbox = dibujarCheckboxs(categorias)
 contenedorCheckbox.innerHTML = crearCheckbox
 let check = document.querySelectorAll('input[type=checkbox]')
 
-console.log(crearCheckbox.value);
-console.log(check);
-console.log(typeof(check));
-console.log(Object.keys(check));
-check.forEach(c => console.log(c.checked))
-check.forEach(c => console.log(c.value))
-let value = []
-/*
-check.forEach(c => c.addEventListener('change', (e)=>{
-
-    if(c.checked == true){
-        value.push(c.value) 
-      //  value.filter(() => check.checked == true)
-      //11/3 22:40 me quede aca abajo analizando el target a ver si encuentro algo
-      console.log(e);
-    }else{
-        value.splice(value.indexOf(c.value), 1)
-    }
-
-    console.log(value)
-    console.log(value.length)
-}))
-*/
 let buscador = document.getElementById('buscador')
 contenedorCheckbox.addEventListener('change', filtroCategoria);
-
 buscador.addEventListener('keyup', filtroCategoria)
 
-function filtroCategoria(){
+function filtroCategoria() {
     let valorBuscador = buscador.value.toLowerCase()
     const checkedValues = [...check]
         .filter(input => input.checked)
         .map(input => input.value);
-    const categoriasFiltradas = data.events.filter(({ category, name, description }) => 
-    (name.toLowerCase().includes(valorBuscador)
-    || description.toLowerCase().includes(valorBuscador)) && (checkedValues.length == 0 ||checkedValues.includes(category)));
-    
-     console.log(categoriasFiltradas);
-     contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
+    const categoriasFiltradas = data.events.filter(({ category, name, description }) =>
+        (name.toLowerCase().includes(valorBuscador)
+            || description.toLowerCase().includes(valorBuscador)) && (checkedValues.length == 0
+                || checkedValues.includes(category)));
+                
+    if (categoriasFiltradas.length > 0) {
+        contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
+    }
+    else {
+        contenedorTarjetas.innerHTML = "Oooops! La búsqueda no arrojó resultados :("
+    }
 
-  /*  let filtroN = arrayDatos.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
-    let filtroD = arrayDatos.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
-    let filtro = crearTarjetas(filtroN) || crearTarjetas(filtroD)
 
-    contenedorTarjetas.innerHTML = filtro*/
 }
 
 function dibujarCheckboxs(arrayDatos) {
@@ -98,22 +76,3 @@ function nombreCategorias(arrayDatos) {
     return categorias
 }
 
-//Filtrar tarjetas por nombre y descripcion del evento
-
-
-/*
-let searchInput = search(data.events, buscador)
-
-contenedorTarjetas.innerHTML = searchInput
-
-function search(arrayDatos, buscador) {
-    buscador.addEventListener('keyup', () => {
-        let filtroN = arrayDatos.filter((event) => event.name.toLowerCase().includes(buscador.value.toLowerCase()))
-        let filtroD = arrayDatos.filter((event) => event.description.toLowerCase().includes(buscador.value.toLowerCase()))
-        let filtro = crearTarjetas(filtroN) || crearTarjetas(filtroD)
-
-        contenedorTarjetas.innerHTML = filtro
-    })
-   // return filtro
-}
-*/

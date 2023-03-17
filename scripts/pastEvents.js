@@ -47,7 +47,12 @@ function filtroCategoria() {
             || description.toLowerCase().includes(valorBuscador)) && (checkedValues.length == 0
                 || checkedValues.includes(category)));
 
-    contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
+    if (categoriasFiltradas.length > 0) {
+        contenedorTarjetas.innerHTML = crearTarjetas(categoriasFiltradas)
+    }
+    else {
+        contenedorTarjetas.innerHTML = "Oooops! La búsqueda no arrojó resultados :("
+    }
 
 
 }
