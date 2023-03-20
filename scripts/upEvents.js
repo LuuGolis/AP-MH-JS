@@ -3,12 +3,9 @@ let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 const contenedorTarjetas = document.querySelector('#contenedorCards')
 let eventos = []
 let eventosFuturos = []
-let tarjetasFiltradas
-
 
 let buscador = document.getElementById('buscador')
 let contenedorCheckbox = document.querySelector('#contenedorFiltros')
-
 let check
 
 contenedorCheckbox.addEventListener('change', filtros);
@@ -30,9 +27,6 @@ function traerDatos() {
 }
 
 traerDatos()
-
-const categorias = nombreCategorias(eventos)
-contenedorCheckbox.innerHTML = dibujarCheckboxs(categorias)
 
 function crearTarjetas(arrayDatos, lugar) {
     let tarjeta = ""

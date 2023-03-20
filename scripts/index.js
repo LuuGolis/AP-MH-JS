@@ -4,7 +4,6 @@ const contenedorTarjetas = document.querySelector('#contenedorCards')
 let eventos = []
 let tarjetasFiltradas
 
-
 let buscador = document.getElementById('buscador')
 let contenedorCheckbox = document.querySelector('#contenedorFiltros')
 
@@ -27,13 +26,7 @@ function traerDatos() {
         .catch(error => console.log(error.message))
 }
 
-
 traerDatos()
-
-//const categorias = nombreCategorias(eventos)
-//contenedorCheckbox.innerHTML = dibujarCheckboxs(categorias)
-
-//console.log(categorias);
 
 function crearTarjetas(arrayDatos, lugar) {
     let tarjeta = ""
