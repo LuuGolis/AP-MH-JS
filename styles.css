@@ -77,3 +77,13 @@ form label {
 #myCheck {
     padding: 0.5rem;
 }
+
+thead{
+    background-color: #fb398d;
+    border: black;
+}
+
+h3{
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
