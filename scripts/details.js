@@ -14,22 +14,22 @@ function traerDatos() {
 
       let tarjeta = ""
 
-      tarjeta += `<div class="card mt-4">
+      tarjeta += `<div class="card mt-4" id="detail">
                   <div class="row g-0">
-                    <div class="col d-flex">
+                    <div class="col-sm-6 d-flex">
                       <img class="img-fluid rounded" src="${card[0].image}"  alt="eventImg">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6">
                       <div class="card-body">
-                        <h5 class="card-title">${card[0].name}</h5>
+                        <h4 class="card-title text-center">${card[0].name}</h4>
                         <ul style="list-style: none;">
-                          <li>Date:${card[0].date} </li>
-                          <li>Description:${card[0].description}</li>
-                          <li>Category:${card[0].category}</li>
-                          <li>Place:${card[0].place}</li>
-                          <li>Capacity:${card[0].capacity}</li>
-                          <li>Assistance or estimate:${card[0].assistance}</li>
-                          <li>Price:${card[0].price}</li>
+                          <li><b>Date: </b>${card[0].date} </li>
+                          <li><b>Description: </b>${card[0].description}</li>
+                          <li><b>Category: </b>${card[0].category}</li>
+                          <li><b>Place: </b>${card[0].place}</li>
+                          <li><b>Capacity: </b>${card[0].capacity}</li>
+                          <li><b>Assistance or estimate: </b>${card[0].assistance || card[0].estimate}</li>
+                          <li><b>Price: </b>$${card[0].price}</li>
                       </ul>
                       <a href="./index.html" id="btnDetails" class="btn btn-dark" >Atrás</a>
                       </div>

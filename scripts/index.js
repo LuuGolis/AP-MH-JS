@@ -48,9 +48,9 @@ function dibujarCheckboxs(arrayDatos) {
     let checkBox = ''
     for (let categoria of arrayDatos.values()) {
         checkBox +=
-            `<label>
+            `<label id="myCheck">
    ${categoria}
-   <input type="checkbox" name="categoria" value="${categoria}">
+   <input type="checkbox"  name="categoria" value="${categoria}">
 </label>`
     }
     return checkBox

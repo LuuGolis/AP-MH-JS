@@ -1,65 +1,79 @@
-
-header img{
+header img {
     width: 150px;
     height: auto;
 }
-header{
+
+header {
     min-height: 10vh;
-    background:#060047;
+    background: #060047;
 }
-nav{
+
+nav {
     min-height: 3vh;
 }
-#filter{
+
+#filter {
     min-height: 2vh;
 }
-main{
+
+main {
     min-height: 80vh;
 
 }
 
-footer{
+footer {
     min-height: 5vh;
-    background-color:#B3005E;
-}
-#active{
-    background-color:#E90064;
+    background-color: #B3005E;
 }
 
-nav{
-    background-color:#B3005E;
+#active {
+    background-color: #E90064;
+}
+
+nav {
+    background-color: #B3005E;
     padding: 0.5rem;
 }
 
-fieldset label{
+fieldset label {
     font-size: x-small;
 }
 
-.row{
+.row {
     margin-left: 0%;
     margin-right: 0%;
 }
-form{
+
+form {
     margin-left: 8rem;
     margin-right: 8rem;
 }
-form label{
+
+form label {
     padding-top: 1rem;
 }
-#submit{
+
+#submit {
     margin-top: 1rem;
     justify-content: end;
 }
 
-
-.btn{
+.btn {
     position: absolute;
     left: 180px;
     bottom: 10px;
-    
+
 }
 
-#btnDetails{
-    position: absolute;
-    margin-left: 26rem;
+#btnDetails {
+    position: relative;
+
+}
+
+#detail {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#myCheck {
+    padding: 0.5rem;
 }
