@@ -7,7 +7,9 @@ const id = params.get("_id")
 const contenedor = document.getElementById("contenedorDetails")
 
 function traerDatos() {
-  fetch(urlApi).then(response => response.json())
+  //fetch('./data.json)
+  fetch(urlApi)
+  .then(response => response.json())
     .then(datosAPI => {
       eventos = datosAPI.events
       let card = eventos.filter(event => event._id == id)

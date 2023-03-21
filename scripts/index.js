@@ -13,7 +13,9 @@ contenedorCheckbox.addEventListener('change', filtros);
 buscador.addEventListener('keyup', filtros)
 
 function traerDatos() {
-    fetch(urlApi).then(response => response.json())
+    //fetch('./data.json)
+    fetch(urlApi)
+    .then(response => response.json())
         .then(datosAPI => {
             eventos = datosAPI.events
             crearTarjetas(eventos, contenedorTarjetas)

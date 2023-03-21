@@ -3,7 +3,9 @@ const contenedorTarjetas = document.querySelector('#contenedorCards')
 let eventos = []
 
 function traerDatos() {
-    fetch(urlApi).then(response => response.json())
+    //fetch('./data.json)
+    fetch(urlApi)
+    .then(response => response.json())
         .then(datosAPI => {
             eventos = datosAPI.events
             arrayPast = pastEvents(eventos, datosAPI.currentDate)
