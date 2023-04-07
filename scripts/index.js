@@ -1,5 +1,41 @@
-let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+//let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
+console.log(Vue);
+const { createApp } = Vue
+
+createApp({
+    data(){
+        return{
+            urlApi: 'https://mindhub-xj03.onrender.com/api/amazing',
+            eventos: [],
+            mensaje:'Hola desde VUE!',
+        }
+    },
+    created(){
+        this.traerDatos()
+
+    },
+    mounted(){
+
+    },
+    methods:{
+        traerDatos() {
+            fetch(this.urlApi)
+            .then(response => response.json())
+                .then(datos => {
+                    this.eventos = datos.events
+                    console.log(datos)
+                    console.log(eventos);
+                })
+                .catch(error => console.log(error.message))
+        }
+
+    },
+    computed:{
+
+    },
+}).mount('#app')
+/*
 const contenedorTarjetas = document.querySelector('#contenedorCards')
 let eventos = []
 let tarjetasFiltradas
@@ -83,3 +119,4 @@ function filtros() {
         contenedorTarjetas.innerHTML = "Oooops! La búsqueda no arrojó resultados :("
     }
 }
+*/
