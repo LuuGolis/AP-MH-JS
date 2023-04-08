@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id="app">
     <header class="d-flex flex-wrap justify-content-center py-3 sticky-top">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
@@ -63,10 +64,19 @@
         </div>
     </div>
 
-    <main class="container mt-2" id="app">
+    <main class="container mt-2" >
         {{mensaje}}
         <section>
             <div class="row p-3 d-flex flex-wrap justify-content-center align-items-center gap-3" id="contenedorCards">
+                <div v-for="evento of eventos" class="card" style="width: 18rem; height:25rem;">
+                    <img :src="evento.image" class="card-img-top" alt="cardImg" width="150" height="150">
+                    <div class="card-body">
+                        <h5 class="card-title">{{evento.name}}</h5>
+                        <p class="card-text">{{evento.description}}</p>
+                        <p>${{evento.price}}</p>
+                        <a href="" class="btn btn-dark" >See more</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -97,5 +107,5 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
-
+</div>
 </html>

@@ -8,6 +8,7 @@ createApp({
         return{
             urlApi: 'https://mindhub-xj03.onrender.com/api/amazing',
             eventos: [],
+            fecha: '',
             mensaje:'Hola desde VUE!',
         }
     },
@@ -24,8 +25,10 @@ createApp({
             .then(response => response.json())
                 .then(datos => {
                     this.eventos = datos.events
+                    this.fecha = datos.currentDate
+                    console.log(this.fecha);
                     console.log(datos)
-                    console.log(eventos);
+                    console.log(this.eventos);
                 })
                 .catch(error => console.log(error.message))
         }
