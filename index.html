@@ -58,10 +58,12 @@
                         </path>
                     </svg>
                 </span>
-                <input id="buscador" type="text" class="form-control" placeholder="Search"
+                <input v-model="texto" id="buscador" type="text" class="form-control" placeholder="Search"
                     aria-label="Input group example" aria-describedby="basic-addon1">
             </div>
+            {{filtros}}
         </div>
+       
     </div>
 
     <main class="container mt-2" >

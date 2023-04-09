@@ -4,28 +4,31 @@ console.log(Vue);
 const { createApp } = Vue
 
 createApp({
-    data(){
-        return{
+    data() {
+        return {
             urlApi: 'https://mindhub-xj03.onrender.com/api/amazing',
-            eventos: [],
             fecha: '',
-            mensaje:'Hola desde VUE!',
+            eventos: [],
+            eventosBackUp: [],
+            texto: '',
+            mensaje: 'Hola desde VUE!',
         }
     },
-    created(){
+    created() {
         this.traerDatos()
 
     },
-    mounted(){
+    mounted() {
 
     },
-    methods:{
+    methods: {
         traerDatos() {
             fetch(this.urlApi)
-            .then(response => response.json())
+                .then(response => response.json())
                 .then(datos => {
                     this.eventos = datos.events
                     this.fecha = datos.currentDate
+                    this.eventosBackUp = this.eventos
                     console.log(this.fecha);
                     console.log(datos)
                     console.log(this.eventos);
@@ -34,8 +37,25 @@ createApp({
         }
 
     },
-    computed:{
+    computed: {
+        filtros() {
 
+
+            /* const checkedValues = [...check]
+                 .filter(input => input.checked)
+                 .map(input => input.value);
+         */
+            this.eventos = this.eventosBackUp.filter(evento => evento.name.toLowerCase().includes(this.texto.toLowerCase()))
+                   /* || eventos.description.toLowerCase().includes(this.texto.toLowerCase())) && (checkedValues.length == 0
+                        || checkedValues.includes(category)));*/
+        /*
+            if (datosFiltrados.length > 0) {
+                crearTarjetas(datosFiltrados, contenedorTarjetas)
+            }
+            else {
+                contenedorTarjetas.innerHTML = "Oooops! La búsqueda no arrojó resultados :("
+            }*/
+        }
     },
 }).mount('#app')
 /*
