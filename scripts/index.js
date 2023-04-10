@@ -45,7 +45,8 @@ createApp({
                  .filter(input => input.checked)
                  .map(input => input.value);
          */
-            this.eventos = this.eventosBackUp.filter(evento => evento.name.toLowerCase().includes(this.texto.toLowerCase()))
+            this.eventos = this.eventosBackUp.filter(evento => evento.name.toLowerCase().includes(this.texto.toLowerCase())
+            || evento.description.toLowerCase().includes(this.texto.toLowerCase()))
                    /* || eventos.description.toLowerCase().includes(this.texto.toLowerCase())) && (checkedValues.length == 0
                         || checkedValues.includes(category)));*/
         /*
