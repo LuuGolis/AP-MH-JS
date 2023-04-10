@@ -43,9 +43,14 @@
     </nav>
 
     <div class="row d-flex flex-wrap align-items-center mt-2" id="filter">
-        <div class="col-sm-8">
-            <fieldset id="contenedorFiltros">  
+        <div class="col-sm-8" >
+            <fieldset id="contenedorFiltros" v-for="categoria of categorias">
+                <label id="myCheck" :for="categoria">                  
+                    <input type="checkbox"  name="categoria" :value="categoria" :id="categoria" v-model="categoriaSeleccionada">
+                    {{categoria}}
+                 </label>  
               </fieldset>
+              {{categoriaSeleccionada}}
         </div>
 
         <div class="col d-flex justify-content-end">
@@ -62,6 +67,7 @@
                     aria-label="Input group example" aria-describedby="basic-addon1">
             </div>
             {{filtros}}
+            {{filtroCategoria}}
         </div>
        
     </div>

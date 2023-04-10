@@ -12,6 +12,7 @@ createApp({
             eventosBackUp: [],
             texto: '',
             categorias:[],
+            categoriaSeleccionada:[],
         }
     },
     created() {
@@ -46,24 +47,24 @@ createApp({
 
     },
     computed: {
-        filtros() {
-
-
-            /* const checkedValues = [...check]
-                 .filter(input => input.checked)
-                 .map(input => input.value);
-         */
+/*
+        filtroTexto(){
             this.eventos = this.eventosBackUp.filter(evento => evento.name.toLowerCase().includes(this.texto.toLowerCase())
             || evento.description.toLowerCase().includes(this.texto.toLowerCase()))
-                   /* || eventos.description.toLowerCase().includes(this.texto.toLowerCase())) && (checkedValues.length == 0
-                        || checkedValues.includes(category)));*/
-        /*
-            if (datosFiltrados.length > 0) {
-                crearTarjetas(datosFiltrados, contenedorTarjetas)
+        },
+        filtroCategoria(){
+            if(this.categoriaSeleccionada.length>0){
+                this.eventos = this.eventosBackUp.filter(evento => this.categoriaSeleccionada.
+                    includes(evento.category))
             }
-            else {
-                contenedorTarjetas.innerHTML = "Oooops! La búsqueda no arrojó resultados :("
-            }*/
+            else{
+                this.eventos = this.eventosBackUp
+            }
+
+        },*/
+
+        filtros() {
+
         }
     },
 }).mount('#app')
