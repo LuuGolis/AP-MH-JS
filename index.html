@@ -67,9 +67,10 @@
     </div>
 
     <main class="container mt-2" >
-        {{mensaje}}
+     
         <section>
             <div class="row p-3 d-flex flex-wrap justify-content-center align-items-center gap-3" id="contenedorCards">
+                <h2 v-if="eventos.length == 0" class="fw-bolder">Ooops! No hubo coincidencias en la búsqueda :c</h2>
                 <div v-for="evento of eventos" class="card" style="width: 18rem; height:25rem;">
                     <img :src="evento.image" class="card-img-top" alt="cardImg" width="150" height="150">
                     <div class="card-body">

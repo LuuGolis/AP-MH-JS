@@ -11,7 +11,7 @@ createApp({
             eventos: [],
             eventosBackUp: [],
             texto: '',
-            mensaje: 'Hola desde VUE!',
+            categorias:[],
         }
     },
     created() {
@@ -32,8 +32,16 @@ createApp({
                     console.log(this.fecha);
                     console.log(datos)
                     console.log(this.eventos);
+                    this.extraerCategorias(this.eventos);
                 })
                 .catch(error => console.log(error.message))
+        },
+        extraerCategorias(array){
+            array.forEach(elemento =>{
+                if(!this.categorias.includes(elemento.category))
+                this.categorias.push(elemento.category)
+            })
+            console.log(this.categorias);
         }
 
     },
