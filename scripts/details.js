@@ -1,4 +1,38 @@
-let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+
+const { createApp } = Vue
+
+createApp({
+    data() {
+        return {
+            urlApi: 'https://mindhub-xj03.onrender.com/api/amazing',
+            fecha: '',
+            eventos: [],
+
+        }
+    },
+    created() {
+        this.traerDatos()
+
+    },
+    mounted() {
+
+    },
+    methods: {
+        traerDatos() {
+            fetch(this.urlApi)
+                .then(response => response.json())
+                .then(datos => {
+                    this.eventos = datos.events
+                })
+                .catch(error => console.log(error.message))
+        },
+
+    },
+    computed: {
+    },
+}).mount('#app')
+
+/*let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 let eventos = []
 
 const params = new URLSearchParams(document.location.search)
@@ -43,3 +77,4 @@ function traerDatos() {
     .catch(error => console.log(error.message))
 }
 traerDatos()
+*/
