@@ -1,3 +1,5 @@
+const params = new URLSearchParams(document.location.search)
+const id = params.get("_id")
 
 const { createApp } = Vue
 
@@ -5,8 +7,8 @@ createApp({
     data() {
         return {
             urlApi: 'https://mindhub-xj03.onrender.com/api/amazing',
-            fecha: '',
             eventos: [],
+            card: [],
 
         }
     },
@@ -23,15 +25,17 @@ createApp({
                 .then(response => response.json())
                 .then(datos => {
                     this.eventos = datos.events
+                    this.card = this.eventos.filter(evento => evento._id == id)
+                    
                 })
                 .catch(error => console.log(error.message))
         },
+      
 
     },
     computed: {
     },
 }).mount('#app')
-
 /*let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 let eventos = []
 
