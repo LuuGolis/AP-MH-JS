@@ -39,6 +39,10 @@ fieldset label {
     font-size: x-small;
 }
 
+#contenedorFiltros{
+    display: inline-block;
+}
+
 .row {
     margin-left: 0%;
     margin-right: 0%;

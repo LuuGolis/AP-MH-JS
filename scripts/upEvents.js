@@ -45,21 +45,6 @@ createApp({
 
     },
     computed: {
-/*
-        filtroTexto(){
-            this.eventos = this.eventosBackUp.filter(evento => evento.name.toLowerCase().includes(this.texto.toLowerCase())
-            || evento.description.toLowerCase().includes(this.texto.toLowerCase()))
-        },
-        filtroCategoria(){
-            if(this.categoriaSeleccionada.length>0){
-                this.eventos = this.eventosBackUp.filter(evento => this.categoriaSeleccionada.
-                    includes(evento.category))
-            }
-            else{
-                this.eventos = this.eventosBackUp
-            }
-
-        },*/
 
         filtros() {
             let filtroTexto = this.eventosBackUp.filter(evento => evento.name.toLowerCase().includes(this.texto.toLowerCase())
