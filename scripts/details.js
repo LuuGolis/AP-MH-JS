@@ -25,7 +25,7 @@ createApp({
                 .then(response => response.json())
                 .then(datos => {
                     this.eventos = datos.events
-                    this.card = this.eventos.filter(evento => evento._id == id)
+                    this.card = this.eventos.filter(evento => evento._id === id)
                     
                 })
                 .catch(error => console.log(error.message))

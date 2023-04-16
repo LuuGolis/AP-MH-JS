@@ -8,7 +8,7 @@ createApp({
             fecha: '',
             eventos: [],
             eventosBackUp: [],
-            eventosPasadps:[],
+            eventosPasados:[],
             texto: '',
             categorias:[],
             categoriaSeleccionada:[],
