@@ -58,6 +58,11 @@
 
         <tbody class="table-group-divider" id="eventStats">
 
+          <tr>
+            <td>{{tabla1.highestPercentage}}</td>
+            <td>{{tabla1.lowestPercentage}}</td>
+            <td>{{tabla1.largerCapacity}}</td>
+        </tr>
         </tbody>
 
       </table>
@@ -71,9 +76,14 @@
             <th>Revenues</th>
             <th>Percentage of attendance</th>
           </tr>
+          
         </thead>
         <tbody class="table-group-divider" id="upEventsStats">
-
+          <tr v-for="evento of tablaFuture">
+            <td>{{evento.category}}</td>
+            <td>${{evento.revenues}}</td>
+            <td>{{evento.attendance.toFixed(2)}}%</td>
+        </tr>
         </tbody>
       </table>
 
@@ -88,7 +98,11 @@
           </tr>
         </thead>
         <tbody class="table-group-divider" id="pastEventsStats">
-
+          <tr v-for="evento of tablaPast">
+            <td>{{evento.category}}</td>
+            <td>${{evento.revenues}}</td>
+            <td>{{evento.attendance.toFixed(2)}}%</td>
+        </tr>
         </tbody>
       </table>
 
